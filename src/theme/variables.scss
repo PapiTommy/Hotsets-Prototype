@@ -1,0 +1,37 @@
+// THEME (STYLE COLOURS)
+$primary: #256eff;
+$secondary: #46237a;
+$tertiary: #3ddc97;
+$white: #fcfcfc;
+$quaternary: #ff495c;
+
+// ICON IMAGE
+$icon-image: url("https://i.imgur.com/PgOlmfN.png");
+
+// MAT EXPANSION MODIFICATION
+mat-expansion-panel {
+  box-shadow: none !important;
+  border: 2px solid $white;
+  border-radius: 20px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.mat-expansion-panel-header {
+  height: 20px !important;
+  padding: 20px !important;
+  font-size: 80%;
+}
+
+.mat-expansion-panel-body {
+  padding: 0px !important;
+  border-top: 2px solid $white;
+}
+
+.alert-popup {
+  --background: #fcfcfc;
+  button.alert-button {
+    color: $secondary;
+    font-weight: bold;
+  }
+}

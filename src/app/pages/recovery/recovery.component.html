@@ -1,0 +1,30 @@
+<ion-content>
+  <div class="not-scrollable">
+    <div class="primary-circle"></div>
+    <div class="secondary-circle"></div>
+  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col no-padding>
+        <div class="center">
+          <div class="logo-display"></div>
+        </div>
+        <form [formGroup]="recoveryForm">
+          <ion-list>
+            <ion-item lines="none">
+              <ion-input name="email" maxlength="100" formControlName="email" type="email" placeholder="Email Address"
+                ngModel required>
+              </ion-input>
+            </ion-item>
+            <button (click)="recover()" class="submit" ion-button no-margin style="width: 100%">
+          <strong>RECOVER</strong>
+        </button>
+          </ion-list>
+        </form>
+        <strong class="error">{{ authError }}</strong>
+        <hr />
+        <strong class="clickable" routerLink="/login" >Go Back</strong>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

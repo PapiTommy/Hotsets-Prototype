@@ -1,0 +1,36 @@
+<ion-content>
+  <div (click)="quitWorkout()" class="top-left"><i class="fas fa-chevron-left fa-3x"></i></div>
+  <div class="under-countdown">
+    <h1><strong>{{ currentWorkoutTitle }}</strong></h1>
+  </div>
+  <div class="countdown">
+    <div class="countdown-icon"><i [class]="workoutIcon"></i></div>
+    <div class="countdown-number"><strong>{{countdown_timer}}</strong>
+      <div class="countdown-sub"><strong>{{countdown_sub}}</strong></div>
+    </div>
+    <svg>
+      <circle [style.animation]="getAnimation()" [style.fill]="getColor()" r="20%" cx="50%" cy="50%">
+      </circle>
+    </svg>
+    <div (click)="increaseSet()" class="set-counter" *ngIf="setCounter">{{setCounterText}}</div>
+  </div>
+  <div class="bottom-left">
+    <table>
+      <th>
+        <div [class]="pauseToggle()" (click)="toggleWorkout()">
+          <i [class]="workout_toggle"></i>
+        </div>
+      </th>
+      <th>
+        <div [class]="backToggle()" (click)="goBack()">
+          <i class="fas fa-step-backward fa-2x"></i>
+        </div>
+      </th>
+      <th>
+        <div [class]="forwardToggle()" (click)="goForward()">
+          <i class="fas fa-step-forward fa-2x"></i>
+        </div>
+      </th>
+    </table>
+  </div>
+</ion-content>

@@ -1,0 +1,541 @@
+<ion-content>
+  <div (click)="signOut()" class="top-right">
+    <i class="fas fa-sign-out-alt fa-2x"></i>
+  </div>
+  <div routerLink="/history" class="top-left">
+    <!-- <div (click)="getinfo()" class="top-left"> -->
+    <i class="far fa-clipboard fa-2x"></i>
+  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col no-padding>
+        <ion-slides pager="true">
+          <ion-slide>
+            <div class="center">
+              <ion-card class="hidden-card">
+                <ion-card-header>
+                  <ion-card-title>
+                    <h1><strong>MONDAY</strong></h1>
+                  </ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                  <div class="center">
+                    <div class="exercise-overview">
+                      <div *ngIf="!mondayExerciseExists" class="center-vertical">
+                        <div class="default-direction">
+                          <strong>START</strong>
+                        </div>
+                        <div class="connector"></div>
+                        <i (click)="editExercise('monday')" class="fas fa-plus-circle fa-6x clickable" ></i>
+                        <div class="connector"></div>
+                        <div class="default-direction"><strong>END</strong></div>
+                      </div>
+                      <div *ngIf="mondayExerciseExists">
+                        <i
+                        (click)="editExercise('monday')"
+                        class="edit-button fas fa-edit fa-2x"
+                      ></i>
+                        <div class="default-direction">
+                          <strong>START</strong>
+                        </div>
+                        <div class="half-connector"></div>
+                        <div *ngFor="let exercise of mondayExercise">
+                          <div class="half-connector"></div>
+                          <div class={{exercise.type}}>
+                            <table>
+                              <div *ngIf="exercise.type === 'timed-exercise'">
+                                <th class="exercise-icon">
+                                  <i class="fas fa-stopwatch fa-3x"></i>
+                                </th>
+                                <th>Exercise: {{exercise.exercise_name}}<br>Duration: {{exercise.duration}} Seconds</th>
+                              </div>
+                              <div *ngIf="exercise.type === 'repetition-exercise'">
+                                <th class="exercise-icon">
+                                  <i class="fas fa-dumbbell fa-3x"></i>
+                                </th>
+                                <th>Exercise:
+                                  {{exercise.exercise_name}}<br>Repetitions: {{exercise.repetitions}}<br>Sets: {{exercise.sets}}<br>Rest / Set: {{exercise.rest_per_set}} Seconds
+                                </th>
+                              </div>
+                              <th *ngIf="exercise.type === 'rested-exercise'" class="th-rest">Rest<br>Duration: {{exercise.duration}} Seconds
+                              </th>
+                              <th *ngIf="exercise.type === 'rested-exercise'" class="rest-icon">
+                                <i class="far fa-clock fa-3x"></i>
+                              </th>
+                            </table>
+                          </div>
+                          <div class="half-connector"></div>
+                        </div>
+                        <div class="half-connector"></div>
+                        <div class="default-direction"><strong>END</strong></div>
+                      </div>
+                    </div>
+                  </div>
+                </ion-card-content>
+
+                <i *ngIf="mondayExerciseExists"
+                  (click)= "startExercise('monday')"
+                  class="play-button far fa-play-circle fa-4x"
+                ></i>
+                <i *ngIf="!mondayExerciseExists"
+                  class="play-button-disabled far fa-play-circle fa-4x"
+                ></i>
+
+              </ion-card>
+            </div>
+          </ion-slide>
+          <ion-slide>
+            <div class="center">
+              <ion-card class="hidden-card">
+                <ion-card-header>
+                  <ion-card-title>
+                    <h1><strong>TUESDAY</strong></h1>
+                  </ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                  <div class="center">
+                    <div class="exercise-overview">
+                      <div *ngIf="!tuesdayExerciseExists" class="center-vertical">
+                        <div class="default-direction">
+                          <strong>START</strong>
+                        </div>
+                        <div class="connector"></div>
+                        <i (click)="editExercise('tuesday')" class="fas fa-plus-circle fa-6x clickable"></i>
+                        <div class="connector"></div>
+                        <div class="default-direction"><strong>END</strong></div>
+                      </div>
+                      <div *ngIf="tuesdayExerciseExists">
+                        <i
+                        (click)="editExercise('tuesday')"
+                        class="edit-button fas fa-edit fa-2x"
+                      ></i>
+                        <div class="default-direction">
+                          <strong>START</strong>
+                        </div>
+                        <div class="half-connector"></div>
+                        <div *ngFor="let exercise of tuesdayExercises">
+                          <div class="half-connector"></div>
+                          <div class={{exercise.type}}>
+                            <table>
+                              <div *ngIf="exercise.type === 'timed-exercise'">
+                                <th class="exercise-icon">
+                                  <i class="fas fa-stopwatch fa-3x"></i>
+                                </th>
+                                <th>Exercise: {{exercise.exercise_name}}<br>Duration: {{exercise.duration}} Seconds</th>
+                              </div>
+                              <div *ngIf="exercise.type === 'repetition-exercise'">
+                                <th class="exercise-icon">
+                                  <i class="fas fa-dumbbell fa-3x"></i>
+                                </th>
+                                <th>Exercise:
+                                  {{exercise.exercise_name}}<br>Repetitions: {{exercise.repetitions}}<br>Sets: {{exercise.sets}}<br>Rest / Set: {{exercise.rest_per_set}} Seconds
+                                </th>
+                              </div>
+                              <th *ngIf="exercise.type === 'rested-exercise'" class="th-rest">Rest<br>Duration: {{exercise.duration}} Seconds
+                              </th>
+                              <th *ngIf="exercise.type === 'rested-exercise'" class="rest-icon">
+                                <i class="far fa-clock fa-3x"></i>
+                              </th>
+                            </table>
+                          </div>
+                          <div class="half-connector"></div>
+                        </div>
+                        <div class="half-connector"></div>
+                        <div class="default-direction"><strong>END</strong></div>
+                      </div>
+                    </div>
+                  </div>
+                </ion-card-content>
+
+                <i *ngIf="tuesdayExerciseExists"
+                  (click)= "startExercise('tuesday')"
+                  class="play-button far fa-play-circle fa-4x"
+                ></i>
+                <i *ngIf="!tuesdayExerciseExists"
+                  class="play-button-disabled far fa-play-circle fa-4x"
+                ></i>
+
+              </ion-card>
+            </div>
+          </ion-slide>
+          <ion-slide>
+            <div class="center">
+              <ion-card class="hidden-card">
+                <ion-card-header>
+                  <ion-card-title>
+                    <h1><strong>WEDNESDAY</strong></h1>
+                  </ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                  <div class="center">
+                    <div class="exercise-overview">
+                      <div *ngIf="!wednesdayExerciseExists" class="center-vertical">
+                        <div class="default-direction">
+                          <strong>START</strong>
+                        </div>
+                        <div class="connector"></div>
+                        <i (click)="editExercise('wednesday')" class="fas fa-plus-circle fa-6x clickable" ></i>
+                        <div class="connector"></div>
+                        <div class="default-direction"><strong>END</strong></div>
+                      </div>
+                      <div *ngIf="wednesdayExerciseExists">
+                        <i
+                        (click)="editExercise('wednesday')"
+                        class="edit-button fas fa-edit fa-2x"
+                      ></i>
+                        <div class="default-direction">
+                          <strong>START</strong>
+                        </div>
+                        <div class="half-connector"></div>
+                        <div *ngFor="let exercise of wednesdayExercises">
+                          <div class="half-connector"></div>
+                          <div class={{exercise.type}}>
+                            <table>
+                              <div *ngIf="exercise.type === 'timed-exercise'">
+                                <th class="exercise-icon">
+                                  <i class="fas fa-stopwatch fa-3x"></i>
+                                </th>
+                                <th>Exercise: {{exercise.exercise_name}}<br>Duration: {{exercise.duration}} Seconds</th>
+                              </div>
+                              <div *ngIf="exercise.type === 'repetition-exercise'">
+                                <th class="exercise-icon">
+                                  <i class="fas fa-dumbbell fa-3x"></i>
+                                </th>
+                                <th>Exercise:
+                                  {{exercise.exercise_name}}<br>Repetitions: {{exercise.repetitions}}<br>Sets: {{exercise.sets}}<br>Rest / Set: {{exercise.rest_per_set}} Seconds
+                                </th>
+                              </div>
+                              <th *ngIf="exercise.type === 'rested-exercise'" class="th-rest">Rest<br>Duration: {{exercise.duration}} Seconds
+                              </th>
+                              <th *ngIf="exercise.type === 'rested-exercise'" class="rest-icon">
+                                <i class="far fa-clock fa-3x"></i>
+                              </th>
+                            </table>
+                          </div>
+                          <div class="half-connector"></div>
+                        </div>
+                        <div class="half-connector"></div>
+                        <div class="default-direction"><strong>END</strong></div>
+                      </div>
+                    </div>
+                  </div>
+                </ion-card-content>
+
+                <i *ngIf="wednesdayExerciseExists"
+                  (click)= "startExercise('wednesday')"
+                  class="play-button far fa-play-circle fa-4x"
+                ></i>
+                <i *ngIf="!wednesdayExerciseExists"
+                  class="play-button-disabled far fa-play-circle fa-4x"
+                ></i>
+
+              </ion-card>
+            </div>
+          </ion-slide>
+          <ion-slide>
+            <div class="center">
+              <ion-card class="hidden-card">
+                <ion-card-header>
+                  <ion-card-title>
+                    <h1><strong>THURSDAY</strong></h1>
+                  </ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                  <div class="center">
+                    <div class="exercise-overview">
+                      <div *ngIf="!thursdayExerciseExists" class="center-vertical">
+                        <div class="default-direction">
+                          <strong>START</strong>
+                        </div>
+                        <div class="connector"></div>
+                        <i (click)="editExercise('thursday')" class="fas fa-plus-circle fa-6x clickable" ></i>
+                        <div class="connector"></div>
+                        <div class="default-direction"><strong>END</strong></div>
+                      </div>
+                      <div *ngIf="thursdayExerciseExists">
+                        <i
+                        (click)="editExercise('thursday')"
+                        class="edit-button fas fa-edit fa-2x"
+                      ></i>
+                        <div class="default-direction">
+                          <strong>START</strong>
+                        </div>
+                        <div class="half-connector"></div>
+                        <div *ngFor="let exercise of thursdayExercises">
+                          <div class="half-connector"></div>
+                          <div class={{exercise.type}}>
+                            <table>
+                              <div *ngIf="exercise.type === 'timed-exercise'">
+                                <th class="exercise-icon">
+                                  <i class="fas fa-stopwatch fa-3x"></i>
+                                </th>
+                                <th>Exercise: {{exercise.exercise_name}}<br>Duration: {{exercise.duration}} Seconds</th>
+                              </div>
+                              <div *ngIf="exercise.type === 'repetition-exercise'">
+                                <th class="exercise-icon">
+                                  <i class="fas fa-dumbbell fa-3x"></i>
+                                </th>
+                                <th>Exercise:
+                                  {{exercise.exercise_name}}<br>Repetitions: {{exercise.repetitions}}<br>Sets: {{exercise.sets}}<br>Rest / Set: {{exercise.rest_per_set}} Seconds
+                                </th>
+                              </div>
+                              <th *ngIf="exercise.type === 'rested-exercise'" class="th-rest">Rest<br>Duration: {{exercise.duration}} Seconds
+                              </th>
+                              <th *ngIf="exercise.type === 'rested-exercise'" class="rest-icon">
+                                <i class="far fa-clock fa-3x"></i>
+                              </th>
+                            </table>
+                          </div>
+                          <div class="half-connector"></div>
+                        </div>
+                        <div class="half-connector"></div>
+                        <div class="default-direction"><strong>END</strong></div>
+                      </div>
+                    </div>
+                  </div>
+                </ion-card-content>
+
+                <i *ngIf="thursdayExerciseExists"
+                  (click)= "startExercise('thursday')"
+                  class="play-button far fa-play-circle fa-4x"
+                ></i>
+                <i *ngIf="!thursdayExerciseExists"
+                  class="play-button-disabled far fa-play-circle fa-4x"
+                ></i>
+
+              </ion-card>
+            </div>
+          </ion-slide>
+          <ion-slide>
+            <div class="center">
+              <ion-card class="hidden-card">
+                <ion-card-header>
+                  <ion-card-title>
+                    <h1><strong>FRIDAY</strong></h1>
+                  </ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                  <div class="center">
+                    <div class="exercise-overview">
+                      <div *ngIf="!fridayExerciseExists" class="center-vertical">
+                        <div class="default-direction">
+                          <strong>START</strong>
+                        </div>
+                        <div class="connector"></div>
+                        <i (click)="editExercise('friday')" class="fas fa-plus-circle fa-6x clickable" ></i>
+                        <div class="connector"></div>
+                        <div class="default-direction"><strong>END</strong></div>
+                      </div>
+                      <div *ngIf="fridayExerciseExists">
+                        <i
+                        (click)="editExercise('friday')"
+                        class="edit-button fas fa-edit fa-2x"
+                      ></i>
+                        <div class="default-direction">
+                          <strong>START</strong>
+                        </div>
+                        <div class="half-connector"></div>
+                        <div *ngFor="let exercise of fridayExercises">
+                          <div class="half-connector"></div>
+                          <div class={{exercise.type}}>
+                            <table>
+                              <div *ngIf="exercise.type === 'timed-exercise'">
+                                <th class="exercise-icon">
+                                  <i class="fas fa-stopwatch fa-3x"></i>
+                                </th>
+                                <th>Exercise: {{exercise.exercise_name}}<br>Duration: {{exercise.duration}} Seconds</th>
+                              </div>
+                              <div *ngIf="exercise.type === 'repetition-exercise'">
+                                <th class="exercise-icon">
+                                  <i class="fas fa-dumbbell fa-3x"></i>
+                                </th>
+                                <th>Exercise:
+                                  {{exercise.exercise_name}}<br>Repetitions: {{exercise.repetitions}}<br>Sets: {{exercise.sets}}<br>Rest / Set: {{exercise.rest_per_set}} Seconds
+                                </th>
+                              </div>
+                              <th *ngIf="exercise.type === 'rested-exercise'" class="th-rest">Rest<br>Duration: {{exercise.duration}} Seconds
+                              </th>
+                              <th *ngIf="exercise.type === 'rested-exercise'" class="rest-icon">
+                                <i class="far fa-clock fa-3x"></i>
+                              </th>
+                            </table>
+                          </div>
+                          <div class="half-connector"></div>
+                        </div>
+                        <div class="half-connector"></div>
+                        <div class="default-direction"><strong>END</strong></div>
+                      </div>
+                    </div>
+                  </div>
+                </ion-card-content>
+
+                <i *ngIf="fridayExerciseExists"
+                  (click)= "startExercise('friday')"
+                  class="play-button far fa-play-circle fa-4x"
+                ></i>
+                <i *ngIf="!fridayExerciseExists"
+                  class="play-button-disabled far fa-play-circle fa-4x"
+                ></i>
+
+              </ion-card>
+            </div>
+          </ion-slide>
+          <ion-slide>
+            <div class="center">
+              <ion-card class="hidden-card">
+                <ion-card-header>
+                  <ion-card-title>
+                    <h1><strong>SATURDAY</strong></h1>
+                  </ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                  <div class="center">
+                    <div class="exercise-overview">
+                      <div *ngIf="!saturdayExerciseExists" class="center-vertical">
+                        <div class="default-direction">
+                          <strong>START</strong>
+                        </div>
+                        <div class="connector"></div>
+                        <i (click)="editExercise('saturday')" class="fas fa-plus-circle fa-6x clickable" ></i>
+                        <div class="connector"></div>
+                        <div class="default-direction"><strong>END</strong></div>
+                      </div>
+                      <div *ngIf="saturdayExerciseExists">
+                        <i
+                        (click)="editExercise('saturday')"
+                        class="edit-button fas fa-edit fa-2x"
+                      ></i>
+                        <div class="default-direction">
+                          <strong>START</strong>
+                        </div>
+                        <div class="half-connector"></div>
+                        <div *ngFor="let exercise of saturdayExercises">
+                          <div class="half-connector"></div>
+                          <div class={{exercise.type}}>
+                            <table>
+                              <div *ngIf="exercise.type === 'timed-exercise'">
+                                <th class="exercise-icon">
+                                  <i class="fas fa-stopwatch fa-3x"></i>
+                                </th>
+                                <th>Exercise: {{exercise.exercise_name}}<br>Duration: {{exercise.duration}} Seconds</th>
+                              </div>
+                              <div *ngIf="exercise.type === 'repetition-exercise'">
+                                <th class="exercise-icon">
+                                  <i class="fas fa-dumbbell fa-3x"></i>
+                                </th>
+                                <th>Exercise:
+                                  {{exercise.exercise_name}}<br>Repetitions: {{exercise.repetitions}}<br>Sets: {{exercise.sets}}<br>Rest / Set: {{exercise.rest_per_set}} Seconds
+                                </th>
+                              </div>
+                              <th *ngIf="exercise.type === 'rested-exercise'" class="th-rest">Rest<br>Duration: {{exercise.duration}} Seconds
+                              </th>
+                              <th *ngIf="exercise.type === 'rested-exercise'" class="rest-icon">
+                                <i class="far fa-clock fa-3x"></i>
+                              </th>
+                            </table>
+                          </div>
+                          <div class="half-connector"></div>
+                        </div>
+                        <div class="half-connector"></div>
+                        <div class="default-direction"><strong>END</strong></div>
+                      </div>
+                    </div>
+                  </div>
+                </ion-card-content>
+
+                <i *ngIf="saturdayExerciseExists"
+                  (click)= "startExercise('saturday')"
+                  class="play-button far fa-play-circle fa-4x"
+                ></i>
+                <i *ngIf="!saturdayExerciseExists"
+                  class="play-button-disabled far fa-play-circle fa-4x"
+                ></i>
+
+              </ion-card>
+            </div>
+          </ion-slide>
+          <ion-slide>
+            <div class="center">
+              <ion-card class="hidden-card">
+                <ion-card-header>
+                  <ion-card-title>
+                    <h1><strong>SUNDAY</strong></h1>
+                  </ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                  <div class="center">
+                    <div class="exercise-overview">
+                      <div *ngIf="!sundayExerciseExists" class="center-vertical">
+                        <div class="default-direction">
+                          <strong>START</strong>
+                        </div>
+                        <div class="connector"></div>
+                        <i (click)="editExercise('sunday')" class="fas fa-plus-circle fa-6x clickable" ></i>
+                        <div class="connector"></div>
+                        <div class="default-direction"><strong>END</strong></div>
+                      </div>
+                      <div *ngIf="sundayExerciseExists">
+                        <i
+                        (click)="editExercise('sunday')"
+                        class="edit-button fas fa-edit fa-2x"
+                      ></i>
+                        <div class="default-direction">
+                          <strong>START</strong>
+                        </div>
+                        <div class="half-connector"></div>
+                        <div *ngFor="let exercise of sundayExercises">
+                          <div class="half-connector"></div>
+                          <div class={{exercise.type}}>
+                            <table>
+                              <div *ngIf="exercise.type === 'timed-exercise'">
+                                <th class="exercise-icon">
+                                  <i class="fas fa-stopwatch fa-3x"></i>
+                                </th>
+                                <th>Exercise: {{exercise.exercise_name}}<br>Duration: {{exercise.duration}} Seconds</th>
+                              </div>
+                              <div *ngIf="exercise.type === 'repetition-exercise'">
+                                <th class="exercise-icon">
+                                  <i class="fas fa-dumbbell fa-3x"></i>
+                                </th>
+                                <th>Exercise:
+                                  {{exercise.exercise_name}}<br>Repetitions: {{exercise.repetitions}}<br>Sets: {{exercise.sets}}<br>Rest / Set: {{exercise.rest_per_set}} Seconds
+                                </th>
+                              </div>
+                              <th *ngIf="exercise.type === 'rested-exercise'" class="th-rest">Rest<br>Duration: {{exercise.duration}} Seconds
+                              </th>
+                              <th *ngIf="exercise.type === 'rested-exercise'" class="rest-icon">
+                                <i class="far fa-clock fa-3x"></i>
+                              </th>
+                            </table>
+                          </div>
+                          <div class="half-connector"></div>
+                        </div>
+                        <div class="half-connector"></div>
+                        <div class="default-direction"><strong>END</strong></div>
+                      </div>
+                    </div>
+                  </div>
+                </ion-card-content>
+
+                <i *ngIf="sundayExerciseExists"
+                  (click)= "startExercise('sunday')"
+                  class="play-button far fa-play-circle fa-4x"
+                ></i>
+                <i *ngIf="!sundayExerciseExists"
+                  class="play-button-disabled far fa-play-circle fa-4x"
+                ></i>
+
+              </ion-card>
+            </div>
+          </ion-slide>
+        </ion-slides>
+        <div (click)="goBack()" class="bottom-left">
+          <i class="fas fa-chevron-left fa-3x"></i>
+        </div>
+        <div (click)="goForward()" class="bottom-right">
+          <i class="fas fa-chevron-right fa-3x"></i>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

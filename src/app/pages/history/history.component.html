@@ -1,0 +1,61 @@
+<ion-content>
+  <div routerLink="/home" class="top-left">
+    <i class="fas fa-chevron-left fa-3x"></i>
+  </div>
+  <ion-grid>
+    <h1><strong>RECENT REPORTS</strong></h1>
+    <div *ngIf="historyFound == false" style="padding: 10%;">There are currently no recent workouts to be displayed from
+      the past 30 days.</div>
+    <div *ngIf="workoutHistory != []">
+      <div *ngFor="let workout of this.workoutHistory | keyvalue">
+        <div *ngFor="let history of this.workoutHistory[workout.key] | keyvalue">
+          <mat-expansion-panel (opened)=" panelOpenState=true" (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <strong>{{history.key |  date:'EEEE, dd MMMM yyyy | hh:mm a'}}</strong>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="center">
+              <div class="expansion-body">
+                <div class="default-direction">
+                  <strong>START</strong>
+                </div>
+                <div class="half-connector"></div>
+                <div *ngFor="let exercise of history.value">
+                  <div class="half-connector"></div>
+                  <div class={{exercise.type}}>
+                    <table>
+                      <div *ngIf="exercise.type === 'timed-exercise'">
+                        <th class="exercise-icon">
+                          <i class="fas fa-stopwatch fa-3x"></i>
+                        </th>
+                        <th>Exercise: {{exercise.exercise_name}}<br>Duration: {{exercise.duration}} Seconds</th>
+                      </div>
+                      <div *ngIf="exercise.type === 'repetition-exercise'">
+                        <th class="exercise-icon">
+                          <i class="fas fa-dumbbell fa-3x"></i>
+                        </th>
+                        <th>Exercise:
+                          {{exercise.exercise_name}}<br>Repetitions: {{exercise.repetitions}}<br>Sets: {{exercise.sets}}<br>Rest / Set: {{exercise.rest_per_set}} Seconds
+                        </th>
+                      </div>
+                      <th *ngIf="exercise.type === 'rested-exercise'" class="th-rest">Rest<br>Duration: {{exercise.duration}} Seconds
+                      </th>
+                      <th *ngIf="exercise.type === 'rested-exercise'" class="rest-icon">
+                        <i class="far fa-clock fa-3x"></i>
+                      </th>
+                    </table>
+                  </div>
+                  <div class="half-connector"></div>
+                </div>
+                <div class="half-connector"></div>
+                <div class="default-direction"><strong>END</strong></div>
+              </div>
+            </div>
+          </mat-expansion-panel>
+          <br>
+        </div>
+      </div>
+    </div>
+  </ion-grid>
+</ion-content>

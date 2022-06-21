@@ -1,0 +1,41 @@
+<ion-content>
+  <div class="not-scrollable">
+    <div class="primary-circle"></div>
+    <div class="secondary-circle"></div>
+  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col no-padding>
+        <div class="center">
+          <div class="logo-display"></div>
+        </div>
+        <form [formGroup]="authForm">
+          <ion-list>
+            <ion-item lines="none">
+              <ion-input name="name" maxlength="26" formControlName="name" type="text" placeholder="Name" ngModel
+                required>
+              </ion-input>
+            </ion-item>
+            <ion-item lines="none">
+              <ion-input name="email" maxlength="100" formControlName="email" type="email" placeholder="Email Address"
+                ngModel required>
+              </ion-input>
+            </ion-item>
+            <ion-item lines="none">
+              <ion-input [type]="password_type" name="password" maxlength="16" formControlName="password"
+                placeholder="Password" ngModel required>
+              </ion-input>
+              <i (click)="togglePasswordMode()" [class]="eye_status"></i>
+            </ion-item>
+            <button (click)="signup()" class="submit" ion-button no-margin style="width: 100%">
+          <strong>CREATE ACCOUNT</strong>
+          </button>
+          </ion-list>
+        </form>
+        <strong class="error">{{ authError }}</strong>
+        <hr />
+        <strong class="clickable" routerLink="/login">Have an account? Sign in</strong>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

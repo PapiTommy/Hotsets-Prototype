@@ -1,0 +1,134 @@
+<ion-content>
+  <ion-col no-padding>
+    <div class="top-selection">
+      <div class="exercise-overview">
+        <i (click)="updateExercise()" class="fas fa-chevron-up fa-3x clickable"></i>
+        <br>
+        <div class="default-start default-direction"><strong>START</strong></div>
+        <div class="half-connector"></div>
+        <div cdkDropList (cdkDropListDropped)="drop($event)">
+          <div *ngFor="let exercise of exercises" cdkDrag>
+            <div class="half-connector"></div>
+            <div class={{exercise.type}}>
+              <div class="remove">
+                <i (click)="delete(exercises.indexOf(exercise))" class="remove-icon fas fa-minus-circle"></i>
+              </div>
+              <table>
+                <div *ngIf="exercise.type === 'timed-exercise'">
+                  <th class="exercise-icon">
+                    <i class="fas fa-stopwatch fa-3x"></i>
+                  </th>
+                  <th>Exercise: {{exercise.exercise_name}}<br>Duration: {{exercise.duration}} Seconds</th>
+                </div>
+                <div *ngIf="exercise.type === 'repetition-exercise'">
+                  <th class="exercise-icon">
+                    <i class="fas fa-dumbbell fa-3x"></i>
+                  </th>
+                  <th>Exercise:
+                    {{exercise.exercise_name}}<br>Repetitions: {{exercise.repetitions}}<br>Sets: {{exercise.sets}}<br>Rest / Set: {{exercise.rest_per_set}} Seconds
+                  </th>
+                </div>
+                <th *ngIf="exercise.type === 'rested-exercise'" class="th-rest">Rest<br>Duration: {{exercise.duration}} Seconds
+                </th>
+                <th *ngIf="exercise.type === 'rested-exercise'" class="rest-icon">
+                  <i class="far fa-clock fa-3x"></i>
+                </th>
+              </table>
+            </div>
+            <div class="half-connector"></div>
+          </div>
+        </div>
+        <div class="half-connector"></div>
+        <div class="center">
+          <div [class]="add_exercise">
+            <i [class]="add_exercise_icon"></i>
+          </div>
+        </div>
+        <div class="connector">
+        </div>
+        <div class="default-direction"><strong>END</strong>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-selection">
+      <div [class]="bottom_selection_style">
+        <table>
+          <th>
+            <div (click)="toggleAddExercise_Timed()" class="add-timed clickable">
+              <i class="fas fa-stopwatch fa-3x"></i>
+            </div>
+          </th>
+          <th>
+            <div (click)="toggleAddExercise_Repetition()" class="add-repetition clickable">
+              <i class="fas fa-dumbbell fa-3x"></i>
+            </div>
+          </th>
+          <th>
+            <div (click)="toggleAddExercise_Rest()" class="add-rest clickable">
+              <i class="far fa-clock fa-3x"></i>
+            </div>
+          </th>
+        </table>
+        <div class="form-container">
+          <div [class]="bottom_selection_style">
+            <div [hidden]="rep_exercise_form">
+              <form [formGroup]="addRepExercise">
+                <ion-item lines="none">
+                  <ion-input text-center name="exercise_name" maxlength="26" formControlName="exercise_name" type="text"
+                    placeholder="Exercise Name" ngModel required>
+                  </ion-input>
+                </ion-item>
+                <ion-item lines="none">
+                  <ion-input text-center name="sets" maxlength="3" formControlName="sets" type="text" placeholder="Sets"
+                    ngModel required>
+                  </ion-input>
+                  &nbsp;
+                  <ion-input text-center name="rest_per_set" maxlength="5" formControlName="rest_per_set" type="text"
+                    placeholder="Rest/Set (Seconds)" ngModel required>
+                  </ion-input>
+                </ion-item>
+                <ion-item lines="none">
+                  <ion-input text-center name="repetitions" maxlength="4" formControlName="repetitions" type="text"
+                    placeholder="Repetitions" ngModel required>
+                  </ion-input>
+                  <button (click)="submitRepExercise()" class="submit" ion-button no-margin>
+          <i class="fas fa-plus-circle add-exercise"></i></button>
+                </ion-item>
+                <strong class="error">{{ repError }}</strong>
+              </form>
+            </div>
+            <div [hidden]="timed_exercise_form">
+              <form [formGroup]="addTimedExercise">
+                <ion-item lines="none">
+                  <ion-input text-center name="exercise_name" maxlength="26" formControlName="exercise_name" type="text"
+                    placeholder="Exercise Name" ngModel required>
+                  </ion-input>
+                </ion-item>
+                <ion-item lines="none">
+                  <ion-input text-center name="duration" maxlength="5" formControlName="duration" type="text"
+                    placeholder="Duration (Seconds)" ngModel required>
+                  </ion-input>
+                  <button (click)="submitTimedExercise()" class="submit" ion-button no-margin>
+          <i class="fas fa-plus-circle add-exercise"></i></button>
+                </ion-item>
+                <strong class="error">{{ timedError }}</strong>
+              </form>
+            </div>
+            <div [hidden]="rest_form">
+              <form [formGroup]="addRest">
+                <ion-item lines="none">
+                  <ion-input text-center name="duration" maxlength="5" formControlName="duration" type="text"
+                    placeholder="Duration (Seconds)" ngModel required>
+                  </ion-input>
+                  <button (click)="submitRest()" class="submit" ion-button no-margin>
+          <i class="fas fa-plus-circle add-exercise"></i></button>
+                </ion-item>
+                <strong class="inverted-error">{{ restError }}</strong>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-col>
+</ion-content>

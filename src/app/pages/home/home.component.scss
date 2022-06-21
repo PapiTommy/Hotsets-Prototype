@@ -1,0 +1,215 @@
+@import '../../../theme/variables.scss';
+
+ion-content {
+  height: 100%;
+  position: relative;
+  background-image: linear-gradient(
+    to bottom left,
+    $tertiary,
+    #40a38e 50%,
+    #436885 80%,
+    $secondary
+  );
+  color: $white;
+  text-align: center;
+}
+
+ion-grid {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  overflow: scroll;
+}
+
+h1 {
+  color: $white !important;
+}
+
+.hidden-card {
+  width: 90vw !important;
+  margin: 0;
+  box-shadow: none;
+}
+
+.exercise-overview {
+  position: relative;
+  // overflow: auto;
+  overflow-y: hidden; // scroll
+  padding: 20px;
+  background-color: $tertiary;
+  border: 2px solid !important;
+  border-color: $white !important;
+  border-radius: 20px; // Causes blur
+  image-rendering: pixelated;
+  margin: 0;
+  box-shadow: none;
+  height: 60vh;
+  width: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+.default-direction {
+  border: 2px solid !important;
+  border-color: $white !important;
+  border-radius: 20px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: inline-block;
+  color: $white !important;
+}
+
+.connector {
+  background-image: linear-gradient($white, $white);
+  background-size: 2px 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 15px;
+}
+
+.half-connector {
+  background-image: linear-gradient($white, $white);
+  background-size: 2px 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 7.5px;
+}
+
+ion-slides {
+  --bullet-background: radial-gradient(circle, transparent 30%, #fcfcfc 40%);
+  --bullet-background-active: #fcfcfc !important;
+}
+
+.far {
+  color: $white;
+}
+
+.fas {
+  color: $white;
+}
+
+.edit-button {
+  color: $white;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 20px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.play-button {
+  margin-bottom: 60px;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.play-button-disabled {
+  margin-bottom: 60px;
+  z-index: 1;
+  opacity: 0.2;
+}
+
+.timed-exercise {
+  border: 2px solid !important;
+  border-color: $white !important;
+  border-radius: 20px;
+  color: $white !important;
+  background-color: $secondary;
+}
+
+th {
+  text-align: left;
+  vertical-align: middle;
+  padding: 10px;
+  font-size: 80%;
+}
+
+.exercise-icon {
+  border-right: 2px solid $white;
+}
+
+.rested-exercise {
+  border: 2px solid !important;
+  border-color: $white !important;
+  border-radius: 20px;
+  color: $white !important;
+  background-color: $quaternary;
+}
+
+.rest-icon {
+  border-left: 2px solid $white;
+}
+
+.th-rest {
+  width: 100%;
+}
+
+.repetition-exercise {
+  border: 2px solid !important;
+  border-color: $white !important;
+  border-radius: 20px;
+  color: $white !important;
+  background-color: $primary;
+}
+
+.top-left {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.top-right {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.bottom-left {
+  z-index: 1;
+  position: absolute;
+  bottom: -7px;
+  left: 15%;
+  opacity: 0.2;
+  cursor: pointer;
+}
+
+.bottom-right {
+  z-index: 1;
+  position: absolute;
+  bottom: -7px;
+  right: 15%;
+  opacity: 0.2;
+  cursor: pointer;
+}
+
+.center-vertical {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.clickable {
+  cursor: pointer;
+}

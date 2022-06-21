@@ -1,0 +1,121 @@
+@import "../../../theme/variables.scss";
+
+.primary-circle {
+  height: 110vh;
+  position: absolute;
+  width: 200vw;
+  background-image: linear-gradient($primary, $secondary);
+  border-radius: 50%;
+  top: 30%;
+  right: 30%;
+  -ms-transform: translate(50%, -50%);
+  transform: translate(50%, -50%);
+  z-index: -1;
+}
+
+.secondary-circle {
+  height: 110vh;
+  position: absolute;
+  width: 200vw;
+  background-image: linear-gradient($primary, $secondary);
+  opacity: 25%;
+  border-radius: 50%;
+  top: 40%;
+  right: 20%;
+  -ms-transform: translate(50%, -50%);
+  transform: translate(50%, -50%);
+  z-index: -2;
+}
+
+ion-content {
+  height: 100%;
+  position: relative;
+  background-image: linear-gradient($primary, $tertiary);
+  color: $white;
+  text-align: center;
+}
+
+ion-item {
+  border: 2px solid !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+  border-color: $white;
+  color: $white;
+  border-radius: 30px;
+  margin-bottom: 15px !important;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0;
+}
+
+ion-list {
+  margin-bottom: 10px;
+  background-color: transparent !important;
+}
+
+.break {
+  height: 20px;
+}
+
+hr {
+  background-color: $white;
+  width: 75%;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+ion-grid {
+  width: 90%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.submit {
+  border-radius: 30px;
+  border: 2px solid;
+  padding: 15px !important;
+  background-color: transparent;
+  box-shadow: none;
+  color: $white !important;
+}
+
+.submit:hover {
+  background-color: $white;
+  color: $secondary !important;
+}
+
+p {
+  margin: 0px;
+}
+
+.logo-display {
+  width: 80%;
+  height: 150px;
+  background-image: $icon-image;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-bottom: 40px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+ion-input {
+  --placeholder-color: $white;
+  --placeholder-opacity: 1;
+}
+
+.error {
+  color: $quaternary;
+  font-size: 12px;
+}
+
+.clickable {
+  cursor: pointer;
+}

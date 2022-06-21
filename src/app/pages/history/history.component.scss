@@ -1,0 +1,123 @@
+@import "../../../theme/variables.scss";
+
+ion-content {
+  height: 100%;
+  position: relative;
+  background-image: linear-gradient(
+    to bottom left,
+    $tertiary,
+    #40a38e 50%,
+    #436885 80%,
+    $secondary
+  );
+  color: $white;
+  text-align: center;
+}
+
+ion-grid {
+  width: 95%;
+  margin-top: 75px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  color: $white !important;
+  margin-bottom: 30px;
+}
+
+.default-direction {
+  border: 2px solid !important;
+  border-color: $white !important;
+  border-radius: 20px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: inline-block;
+  color: $white !important;
+}
+
+.connector {
+  background-image: linear-gradient($white, $white);
+  background-size: 2px 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 15px;
+}
+
+.half-connector {
+  background-image: linear-gradient($white, $white);
+  background-size: 2px 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 7.5px;
+}
+
+.far {
+  color: $white;
+}
+
+.fas {
+  color: $white;
+}
+
+.timed-exercise {
+  border: 2px solid !important;
+  border-color: $white !important;
+  border-radius: 20px;
+  color: $white !important;
+  background-color: $secondary;
+}
+
+th {
+  text-align: left;
+  vertical-align: middle;
+  padding: 10px;
+  font-size: 80%;
+}
+
+.exercise-icon {
+  border-right: 2px solid $white;
+}
+
+.rested-exercise {
+  border: 2px solid !important;
+  border-color: $white !important;
+  border-radius: 20px;
+  color: $white !important;
+  background-color: $quaternary;
+}
+
+.rest-icon {
+  border-left: 2px solid $white;
+}
+
+.th-rest {
+  width: 100%;
+}
+
+.repetition-exercise {
+  border: 2px solid !important;
+  border-color: $white !important;
+  border-radius: 20px;
+  color: $white !important;
+  background-color: $primary;
+}
+
+.top-left {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.expansion-body {
+  width: 100%;
+  padding: 20px;
+}
