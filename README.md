@@ -20,6 +20,11 @@ The Ionic 4 framework and Firebase are used to create a fully functioning applic
 
 <br/>
 
+### NOTE
+Replace the current Firebase config with your config details in src/app/app.component.ts
+
+<br/>
+
 ## Storyboard
 
 ![Hotsets Storyboard](https://i.imgur.com/DxOugFU.jpg)
