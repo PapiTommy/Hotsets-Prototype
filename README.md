@@ -1,29 +1,34 @@
 # Hotsets
-Hotsets is a mobile application that tracks weekly workouts - more specifically the time between sets, reps, and rests.
 
-The Ionic 4 framework and Firebase are used to create a fully functioning application, with the appropriate user authentication and storage. The application includes a register, login, workout timetable, countdown, and history page.
+Hotsets is a mobile application that tracks weekly workouts, focusing on the time between sets, reps and rests.
 
-### Register and Login:
-- Uses firebase authentication to authenticate users (Set Email/password as the Sign-in provider)
+Built with the Ionic 4 framework and Firebase, Hotsets offers robust user authentication and data storage. The application features a register, login, workout timetable, countdown timer, and history page.
 
-### Workout timetable:
-- A fully customisable weekly workout, contains three customisable elements (rep/set based exercises, timed exercises and rests)
-- Weekly workout timetables can be modified by the user in real time.
-- All saved workouts are saved in the firestore database.
+## Features
 
-### Countdown:
-- Each customized workout has a "Play" option that guides the user through their workout using a countdown timer.
+### Register and Login
+- Utilises Firebase authentication to secure user accounts (Email/password as the sign-in provider).
 
-### History:
-- Stores the users workouts upon completion, documenting the time and exercises completed.
-- Workout history is saved in the firestore database.
+### Workout Timetable
+- Fully customisable weekly workout schedules.
+- Supports three exercise types: rep/set-based exercises, timed exercises, and rest periods.
+- Users can modify their workout timetables in real-time.
+- All workouts are saved in the Firestore database.
 
-<br/>
+### Countdown
+- Each workout includes a "Play" option that guides users through their routines with a countdown timer.
 
-### NOTE
-Replace the current Firebase config with your config details in src/app/app.component.ts
+### History
+- Stores completed workouts, documenting the time and exercises performed.
+- Workout history is saved in the Firestore database.
 
-<br/>
+## Configuration
+
+Replace the current Firebase config with your configuration details in `src/app/app.component.ts`.
+
+## Note
+
+This was my first project, so feel free to optimise and improve it.
 
 ## Storyboard
 
