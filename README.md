@@ -7,10 +7,10 @@ Built with the Ionic 4 framework and Firebase, Hotsets offers robust user authen
 ## Features
 
 ### Register and Login
-- Utilises Firebase authentication to secure user accounts (Email/password as the sign-in provider).
+- Utilizes Firebase authentication to secure user accounts (Email/password as the sign-in provider).
 
 ### Workout Timetable
-- Fully customisable weekly workout schedules.
+- Fully customizable weekly workout schedules.
 - Supports three exercise types: rep/set-based exercises, timed exercises, and rest periods.
 - Users can modify their workout timetables in real-time.
 - All workouts are saved in the Firestore database.
@@ -28,8 +28,12 @@ Replace the current Firebase config with your configuration details in `src/app/
 
 ## Note
 
-This was my first project, so feel free to optimise and improve it.
+This was my first project, so feel free to optimize and improve it.
 
 ## Storyboard
 
 ![Hotsets Storyboard](https://i.imgur.com/DxOugFU.jpg)
+
+## Contributing
+
+We welcome contributions to improve Hotsets! Please fork the repository and submit pull requests.
