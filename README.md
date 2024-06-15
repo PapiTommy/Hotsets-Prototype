@@ -32,7 +32,7 @@ This was my first project, so feel free to optimize and improve it.
 
 ## Storyboard
 
-![Hotsets Storyboard](https://i.imgur.com/DxOugFU.jpg)
+<img src="https://i.imgur.com/DxOugFU.jpg" alt="Hotsets Storyboard" width="100%">
 
 ## Contributing
 
